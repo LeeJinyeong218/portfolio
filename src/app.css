@@ -1,1 +1,48 @@
 @import 'tailwindcss';
+@tailwind components;
+@tailwind utilities;
+@tailwind apply;
+
+@theme {
+    --color-background: #ffffff;
+    --color-primary: oklch(70.7% 0.165 254.624);
+    --color-secondary: oklch(76.9% 0.188 70.08);
+    --color-dark-gray: #666666;
+    --color-light-gray: #D9D9D9;
+}
+
+@layer base {
+    h1 {
+        @apply text-4xl font-bold;
+    }
+
+    h2 {
+        @apply text-3xl font-bold;
+    }
+
+    h3 {
+        @apply text-2xl font-bold;
+    }
+
+    h4 {
+        @apply text-xl font-bold;
+    }
+}
+
+@layer components {
+    .title {
+        @apply text-6xl font-extrabold;
+    }
+
+    .subtitle {
+        @apply text-5xl font-extrabold;
+    }
+
+    .body {
+        @apply text-base font-normal;
+    }
+
+    .caption {
+        @apply text-xs font-normal;
+    }
+}
