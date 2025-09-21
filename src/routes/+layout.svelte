@@ -1,7 +1,13 @@
 <script lang="ts">
 	import '../app.css';
-	
-	let { children } = $props();
+    import Nav from "$lib/components/feature/layout/Nav.svelte";
 </script>
 
-{@render children()}
+<div class="bg-background flex">
+    <main class="flex-1">
+        <slot />
+    </main>
+    <aside class="w-1/4 min-h-screen">
+        <Nav />
+    </aside>
+</div>
