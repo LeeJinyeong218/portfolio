@@ -4,22 +4,22 @@ import { BookA, Brush, CircleUserRound, Layers } from "lucide-svelte";
 export const navItems = [
     {
         key: 'intro',
-        slug: 'intro',
+        slug: '/',
         icon: CircleUserRound
     },
     {
         key: 'educert',
-        slug: 'educert',
+        slug: '/educert',
         icon: BookA
     },
     {
         key: 'skills',
-        slug: 'skills',
+        slug: '/skills',
         icon: Brush
     },
     {
         key: 'projects',
-        slug: 'projects',
+        slug: '/projects',
         icon: Layers
     }
 ]

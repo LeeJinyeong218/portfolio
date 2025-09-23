@@ -8,12 +8,13 @@
 	import { Languages, ArrowUpFromLine } from 'lucide-svelte';
 	import { m } from '$lib/paraglide/messages.js';
     import { navItems } from '$lib/constants/nav';
+    import { clsx } from 'clsx';
     
     function navigateToSection(slug: string) {
         if (slug === 'intro') { 
             goto('/', { replaceState: true, noScroll: true });
         } else {
-            goto(`/${slug}`, { replaceState: true, noScroll: true });
+            goto(`${slug}`, { replaceState: true, noScroll: true });
         }
     }
 
@@ -31,7 +32,7 @@
     }
 </script>
 
-<div class="fixed right-0 top-1/2 -translate-y-1/2 w-1/4 h-fit Content py-16 px-6 flex flex-col gap-6 items-center">
+<div class="fixed right-0 top-5/12 -translate-y-1/2 w-1/4 h-fit Content py-16 px-6 flex flex-col gap-6 items-center">
     <!-- title -->
     <div class="flex flex-col items-center gap-1">
         <h4 class="text-primary">Frontend Developer</h4>
@@ -56,11 +57,11 @@
             {#each navItems as item}
                 <li>
                     <button 
-                        class="block w-full text-left px-4 py-2 rounded hover:bg-gray-100 transition-colors flex gap-2 rounded-lg"
+                        class={clsx('block w-full text-left px-4 py-3 rounded transition-colors flex gap-2 rounded-lg', item.slug === (page.url.pathname ?? '') ? 'bg-primary' : 'hover:bg-gray-100')}
                         on:click={() => navigateToSection(item.slug)}
                     >
-                        <item.icon size={24} color="var(--color-dark-gray)" />
-                        <span class="text-dark-gray">{m[item.key as keyof typeof m]()}</span>
+                        <item.icon size={24} color={item.slug === (page.url.pathname ?? '') ? "#ffffff" : "var(--color-dark-gray)"} />
+                        <span class={clsx(item.slug === (page.url.pathname ?? '') ? "text-white" : "text-dark-gray")}>{m[item.key as keyof typeof m]()}</span>
                     </button>
                 </li>
             {/each}
