@@ -13,6 +13,8 @@
     let skillsElement: HTMLElement;
     let projectsElement: HTMLElement;
     let intersectionObserver: IntersectionObserver | null = null;
+    let isProgrammaticScroll: boolean = false;
+    let scrollEndTimeout: number | null = null;
 
     // 현재 URL에 반영된 slug를 추적하여 불필요한 내비게이션 방지
     let currentSlugInUrl: string = slug ?? '';
@@ -34,33 +36,61 @@
         }
     }
 
+    // 스크롤 종료 감지 타이머 설정
+    function scheduleScrollEndReset() {
+        if (scrollEndTimeout !== null) {
+            clearTimeout(scrollEndTimeout);
+        }
+        // 스무스 스크롤이 끝났다고 볼 수 있는 지연 시간
+        scrollEndTimeout = window.setTimeout(() => {
+            isProgrammaticScroll = false;
+            scrollEndTimeout = null;
+        }, 400);
+    }
+
     // 스크롤 애니메이션
     function scrollToElement(element: HTMLElement) {
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        if (!element) return;
+
+        isProgrammaticScroll = true;
+
+        // 요소의 위치를 계산하여 정확히 중앙에 오도록 스크롤
+        const elementRect = element.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const elementHeight = elementRect.height;
+        const windowHeight = window.innerHeight;
+
+        // 요소가 화면 중앙에 오도록 스크롤 위치 계산
+        const scrollTo = absoluteElementTop - (windowHeight / 2) + (elementHeight / 2);
+
+        window.scrollTo({
+            top: scrollTo,
+            behavior: 'smooth'
+        });
+
+        scheduleScrollEndReset();
     }
 
     // slug 감지
     $: if (slug !== undefined) {
         const targetElement = getScrollTarget(slug);
         if (targetElement) {
-            setTimeout(() => {
+            // requestAnimationFrame을 사용하여 더 정확한 타이밍에 스크롤
+            requestAnimationFrame(() => {
                 scrollToElement(targetElement);
-            }, 100);
+            });
         }
     }
 
     // 초기 로드 스크롤
     onMount(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
         const targetElement = getScrollTarget(slug);
         if (targetElement) {
-            setTimeout(() => {
+            // requestAnimationFrame을 사용하여 더 정확한 타이밍에 스크롤
+            requestAnimationFrame(() => {
                 scrollToElement(targetElement);
-            }, 100);
+            });
         }
 
         // 50% 이상 보이는 섹션을 감지하여 URL 갱신
@@ -79,6 +109,8 @@
         }
 
         intersectionObserver = new IntersectionObserver((entries) => {
+            // 프로그램적 스크롤 중에는 URL 갱신을 막아 스크롤 끊김 방지
+            if (isProgrammaticScroll) return;
             // 가장 많이 보이는 항목 우선
             const visibleEntries = entries
                 .filter((e) => e.isIntersecting && e.intersectionRatio >= 0.5)
@@ -105,10 +137,22 @@
         }
     });
 
+    // 스크롤 이벤트로 프로그램적 스크롤 종료를 디바운스 감지
+    function handleScroll() {
+        if (isProgrammaticScroll) {
+            scheduleScrollEndReset();
+        }
+    }
+
     onDestroy(() => {
         if (intersectionObserver) {
             intersectionObserver.disconnect();
             intersectionObserver = null;
+        }
+        window.removeEventListener('scroll', handleScroll);
+        if (scrollEndTimeout !== null) {
+            clearTimeout(scrollEndTimeout);
+            scrollEndTimeout = null;
         }
     });
 

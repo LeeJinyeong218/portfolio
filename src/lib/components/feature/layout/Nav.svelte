@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { page } from '$app/state';
     import profile from '$lib/assets/profile.gif';
     import Github from '$lib/assets/icons/Github.svg';
     import Linkedin from '$lib/assets/icons/LinkedIn.svg';
@@ -17,8 +18,16 @@
     }
 
     async function goToIntro() {
-        // 이동(스크롤 상태 초기화)
-        goto('/', { replaceState: true, noScroll: true });
+        // 현재 경로가 /가 아니라면 URL 변경
+        if (page.url.pathname !== '/') {
+            goto('/', { replaceState: true, noScroll: true });
+        } else {
+            // 이미 / 경로라면 스크롤만 맨 위로
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     }
 </script>
 
