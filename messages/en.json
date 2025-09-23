@@ -1,0 +1,8 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello": "Hello,\nI'm a frontend developer\nLee Jinyoung!",
+  "intro": "Intro",
+  "educert": "Education & Certificates",
+  "skills": "Skills",
+  "projects": "Projects"
+}

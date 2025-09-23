@@ -1,0 +1,8 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello": "안녕하세요,\n프론트엔드 개발자\n이진영입니다!",
+  "intro": "소개",
+  "educert": "학력 & 자격",
+  "skills": "기술 스택",
+  "projects": "프로젝트"
+}
