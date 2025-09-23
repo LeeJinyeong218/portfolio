@@ -31,7 +31,7 @@
     </div>
     <!-- info -->
     <div class="flex flex-col gap-3 justify-center items-center">
-        <img alt="profile image" src={profile} class="w-12 h-12" />
+        <img alt="profile" src={profile} class="w-12 h-12" />
         <p class="body text-dark-gray text-center whitespace-pre-line">
             {m.hello()}
         </p>
