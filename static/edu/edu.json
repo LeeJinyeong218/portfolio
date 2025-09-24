@@ -1,0 +1,84 @@
+{
+    "education": [
+        {
+            "en": {
+                "name": "Ajou University",
+                "degree": "Department of Electronic Engineering",
+                "period": "2017.03.02 - 2025.02.21"
+            },
+            "ko": {
+                "name": "아주대학교",
+                "degree": "전자공학과",
+                "period": "2017.03.02 - 2025.02.21"
+            }
+        },
+        {
+            "en": {
+                "name": "Jungwon High School",
+                "period": "2014.03.03 - 2017.02.07"
+            },
+            "ko": {
+                "name": "중원고등학교",
+                "period": "2014.03.03 - 2017.02.07"
+            }
+        }
+    ], 
+    "activities": [
+        {
+            "en": {
+                "name": "Advanced_Full Stack Developer with AI Integration",
+                "period": "2025.04.23 - 2025.06.27",
+                "organizer": "goorm Inc.",
+                "description": "Advanced Web Service Development"
+            },
+            "ko": {
+                "name": "심화_엔드 투 엔드 AI 통합 풀스택 개발 전문가 과정",
+                "period": "2025.04.23 - 2025.06.27",
+                "organizer": "주식회사구름",
+                "description": "웹 서비스 심화 개발"
+            }
+        },
+        {
+            "en": {
+                "name": "Kakao Cloud School - Developer Training Program",
+                "period": "2023.12.06 - 2024.06.11",
+                "organizer": "Korea Radio Promotion Association (RAPA)",
+                "description": "Completed cloud web development lectures and built services"
+            },
+            "ko": {
+                "name": "카카오 클라우드 스쿨 개발자 양성과정",
+                "period": "2023.12.06 - 2024.06.11",
+                "organizer": "한국전파진흥협회",
+                "description": "클라우드 웹 개발 강의 수강 및 서비스 개발"
+            }
+        },
+        {
+            "en": {
+                "name": "Ajou University IT Club Do-iT - React Study",
+                "period": "2023.03.18 - 2023.05.24",
+                "organizer": "Ajou University",
+                "description": "Participated in React study group"
+            },
+            "ko": {
+                "name": "아주대학교 IT동아리 Do-iT - React 스터디",
+                "period": "2023.03.18 - 2023.05.24",
+                "organizer": "아주대학교",
+                "description": "React 스터디 참여"
+            }
+        },
+        {
+            "en": {
+                "name": "Ajou University Education Volunteer Club - Saemteo Night School",
+                "period": "2022.11.22 - 2023.06.09",
+                "organizer": "Ajou University",
+                "description": "Taught basic English (textbook-based) and Korean (poetry-based) to adults"
+            },
+            "ko": {
+                "name": "아주대학교 교육봉사동아리 샘터야학",
+                "period": "2022.11.22 - 2023.06.09",
+                "organizer": "아주대학교",
+                "description": "성인 대상 교재 기반 기초 영어 및 시집 기반 국어 강사 활동"
+            }
+        }
+    ]
+}

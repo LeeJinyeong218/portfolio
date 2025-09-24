@@ -40,6 +40,6 @@
     }
 
     .caption {
-        @apply text-xs font-normal;
+        @apply text-sm font-normal;
     }
 }

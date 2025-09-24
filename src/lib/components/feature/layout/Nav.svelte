@@ -7,7 +7,7 @@
     import Linkedin from '$lib/assets/icons/LinkedIn.svg';
     import Velog from '$lib/assets/icons/Velog.svg';
 	import { Languages, ArrowUpFromLine } from 'lucide-svelte';
-	import { m } from '$lib/paraglide/messages.js';
+	// import { m } from '$lib/paraglide/messages.js';
     import { navItems } from '$lib/constants/nav';
     import { clsx } from 'clsx';
 	import LanguageButton from '../LanguageButton.svelte';
@@ -47,7 +47,7 @@
     <div class="flex flex-col gap-3 justify-center items-center">
         <img alt="profile" src={profile} class="w-12 h-12" />
         <p class="body text-dark-gray text-center whitespace-pre-line">
-            {m.hello()}
+            {"안녕하세요,\n프론트엔드 개발자\n이진영입니다!"}
         </p>
         <div class="flex gap-3">
             <a href="https://github.com/LeeJinyeong218" target="_blank" rel="noopener noreferrer"><img alt="github" src={Github} class="w-6 h-6" /></a>
@@ -65,14 +65,14 @@
                         on:click={() => navigateToSection(item.slug)}
                     >
                         <item.icon size={24} color={item.slug === ($page.url.pathname ?? '') ? "#ffffff" : "var(--color-dark-gray)"} />
-                        <span class={clsx(item.slug === ($page.url.pathname ?? '') ? "text-white" : "text-dark-gray")}>{m[item.key as keyof typeof m]()}</span>
+                        <span class={clsx(item.slug === ($page.url.pathname ?? '') ? "text-white" : "text-dark-gray")}>{item.name}</span>
                     </button>
                 </li>
             {/each}
         </ul>
     </nav>
     <!-- language button -->
-    <LanguageButton />
+    <!-- <LanguageButton /> -->
     <!-- to top button -->
     <button aria-label="to top button" class="border-2 border-light-gray rounded-full p-3 flex items-center justify-center" on:click={goToIntro}>
         <ArrowUpFromLine size={24} color="var(--color-light-gray)" />
