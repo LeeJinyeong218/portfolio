@@ -142,8 +142,8 @@
             "icon": "/skillIcons/Figma.svg"
         },
         {
-            "name": "Jira",
-            "icon": "/skillIcons/Jira.svg"
+            "name": "JIRA",
+            "icon": "/skillIcons/JIRA.svg"
         },
         {
             "name": "Confluence",
@@ -163,7 +163,7 @@
         },
         {
             "name": "Pandas",
-            "icon": "/skillIcons/Pandas.svg",
+            "icon": "/skillIcons/Pandas.png",
             "level": 1
         }
     ]
