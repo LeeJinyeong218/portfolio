@@ -1,0 +1,103 @@
+[
+    {
+        "id": 1,
+        "period": "2025.06 ~ 진행 중",
+        "title": "강릉 여행 택시 예약 플랫폼 Tourang",
+        "competition": "2025 관광데이터 활용 공모전",
+        "image": "/projects/tourang.png",
+        "links": {
+            "github": "https://github.com/TeamMeari/tripsok-front",
+            "site": "https://www.tourang.site"
+        },
+        "team": "기획 및 디자인 1명, 백엔드 2명, 프론트엔드 2명",
+        "description": "외국인 관광객이 직접 고르는 강릉 여행 코스를 토대로 관광택시 예약을 지원하는 서비스",
+        "tech": [
+            "TypeScript",
+            "React",
+            "Zustand",
+            "CSS Module",
+            "MotionOne",
+            "i18n",
+            "Storybook",
+            "Vercel",
+            "Github"
+        ],
+        "role": "프론트엔드 개발",
+        "achievements": [
+            "TypeScript 도입, Vite 마이그레이션을 통한 개발 생산성 향상 및 서버 실행 시간 단축",
+            "MotionOne을 사용한 캐러셀 애니메이션 구현, Skeleton UI 추가, 낙관적 업데이트를 적용한 좋아요 기능 구현으로 UX 개선",
+            "Storybook 문서화·테스트 및 Chromatic 자동 배포로 기획자와 공유, 협업 강화",
+            "Zustand로 회원가입 단계 데이터와 로그인 상태 효율적 관리",
+            "커스텀 훅으로 스크롤 편의성 제공 및 터치 이벤트 대응, i18n 다국어 지원으로 사용성 향상",
+            "Axios 기반 커스텀 훅으로 API 요청 관리",
+            "Vercel을 활용한 배포"
+        ]
+    },
+    {
+        "id": 2,
+        "period": "2025.04 ~ 2025.06",
+        "title": "크라우드 펀딩 이커머스 플랫폼 Athena",
+        "program": "심화_엔드 투 엔드 AI 통합 풀스택 개발 전문가 과정",
+        "image": "/projects/athena.jpg",
+        "links": {
+            "github": "https://github.com/team-2percent/Athena_Front"
+        },
+        "team": "인프라 및 백엔드 1명, 백엔드 3명, 프론트엔드 2명",
+        "description": "크라우드 펀딩 이커머스 플랫폼 ‘텀블벅’ 벤치마킹 서비스",
+        "tech": [
+            "TypeScript",
+            "Next.js",
+            "Zustand",
+            "Zod",
+            "Cypress",
+            "Jest",
+            "Storybook",
+            "Tailwind CSS",
+            "Vercel",
+            "Github"
+        ],
+        "role": "기획(공동), 프론트엔드 개발, 프론트엔드 테스트",
+        "achievements": [
+            "react-daum-postcode로 배송지 추가 기능 제공, 사용자 편의성 향상",
+            "Zod로 회원가입·로그인·사용자 정보 유효성 검사, DX/UX 개선",
+            "GET 요청 Skeleton/오류 UI와 POST 요청 Loading/오류 Toast UI로 사용성 향상",
+            "Zustand로 로그인, 토스트 알림 상태 효율적 관리",
+            "Storybook으로 공통 컴포넌트 문서화, 프론트엔드 협업 효율 향상",
+            "Jest로 유틸·Zod 스키마·Zustand 상태 테스트(166개 통과), mockttp+Cypress E2E로 사용자 흐름 검증",
+            "로컬에서 next/image 사용으로 이미지 로딩 성능 개선(개별 1~3초 → 0.2~0.5초), 메인 LCP 2.2초 → 0.8초",
+            "Vercel 배포"
+        ]
+    },
+    {
+        "id": 3,
+        "period": "2024.03 ~ 2024.06",
+        "title": "Kubernetes 통합 플랫폼 웹 서비스 Zolang",
+        "program": "카카오 클라우드 개발자 양성과정",
+        "image": "/projects/zolang.png",
+        "links": {
+            "github": "https://github.com/09s-BobBurger/Zolang-client"
+        },
+        "team": "백엔드 3명, 프론트엔드 2명",
+        "description": "초보 개발자 대상 Kubernetes 통합 플랫폼: YAML 작성, 자동화 배포 및 실시간 모니터링",
+        "tech": [
+            "JavaScript",
+            "CSS3",
+            "React",
+            "Axios",
+            "MSW",
+            "Redux",
+            "Github"
+        ],
+        "role": "프론트엔드 개발",
+        "achievements": [
+            "YAML Generator 일부 템플릿, Github Push, Cluster Monitoring의 Workloads/Networks, Build & Deploy 등 핵심 기능 개발",
+            "Axios Interceptor로 JWT 기반 로그인 확인 로직 추가",
+            "Pod CPU/Memory 및 사용 요금을 ApexChart.js로 시각화하여 직관적 데이터 전달",
+            "Redux 도입으로 상태 중앙화 및 Props drilling 해결",
+            "MSW 도입으로 BE 일정과 무관하게 API 명세 기반 개발·테스트, 프로세스 개선",
+            "ApexChart.js, MUI로 UI 개선",
+            "서버 Workload 페이로드 형식 정돈과 예외 처리로 안정성 향상",
+            "배포 환경/상태 로고화로 직관적 클러스터 정보 전달"
+        ]
+    }
+]
