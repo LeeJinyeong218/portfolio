@@ -1,0 +1,170 @@
+{
+    "language": [
+        {
+            "name": "JavaScript",
+            "icon": "/skillIcons/JavaScript.svg",
+            "level": 3
+        },
+        {
+            "name": "TypeScript",
+            "icon": "/skillIcons/TypeScript.svg",
+            "level": 1
+        },
+        {
+            "name": "Python",
+            "icon": "/skillIcons/Python.svg",
+            "level": 1
+        },
+        {
+            "name": "Java",
+            "icon": "/skillIcons/Java.svg",
+            "level": 2
+        },
+        {
+            "name": "HTML5",
+            "icon": "/skillIcons/HTML.svg",
+            "level": 2
+        },
+        {
+            "name": "CSS3",
+            "icon": "/skillIcons/CSS.svg",
+            "level": 2
+        },
+        {
+            "name": "C",
+            "icon": "/skillIcons/C.svg",
+            "level": 1
+        }
+    ],
+    "frontend": [
+        {
+            "name": "React",
+            "icon": "/skillIcons/React.svg",
+            "level": 2
+        },
+        {
+            "name": "Next.js",
+            "icon": "/skillIcons/Nextjs.svg",
+            "level": 1
+        },
+        {
+            "name": "Redux",
+            "icon": "/skillIcons/Redux.svg",
+            "level": 1
+        },
+        {
+            "name": "Zustand",
+            "icon": "/skillIcons/Zustand.svg",
+            "level": 1
+        },
+        {
+            "name": "Tailwind CSS",
+            "icon": "/skillIcons/TailwindCSS.svg",
+            "level": 1
+        },
+        {
+            "name": "CSS Module",
+            "level": 1
+        },
+        {
+            "name": "Styled Components",
+            "icon": "/skillIcons/StyledComponents.svg",
+            "level": 1
+        },
+        {
+            "name": "MSW",
+            "icon": "/skillIcons/MSW.svg",
+            "level": 1
+        },
+        {
+            "name": "Zod",
+            "icon": "/skillIcons/Zod.svg",
+            "level": 1
+        },
+        {
+            "name": "Jest",
+            "icon": "/skillIcons/Jest.svg",
+            "level": 1
+        },
+        {
+            "name": "Storybook",
+            "icon": "/skillIcons/Storybook.svg",
+            "level": 1
+        },
+        {
+            "name": "Cypress",
+            "icon": "/skillIcons/Cypress.svg",
+            "level": 1
+        },
+        {
+            "name": "MotionOne",
+            "level": 1
+        },
+        {
+            "name": "i18n",
+            "level": 1
+        },
+        {
+            "name": "Vercel",
+            "icon": "/skillIcons/Vercel.svg",
+            "level": 1
+        }
+    ],
+    "backend": [
+        {
+            "name": "Spring Boot",
+            "icon": "/skillIcons/Spring.svg",
+            "level": 1
+        }
+    ],
+    "database": [
+        {
+            "name": "MySQL",
+            "icon": "/skillIcons/MySQL.svg",
+            "level": 1
+        }
+    ],
+    "collaborate": [
+        {
+            "name": "Github",
+            "icon": "/skillIcons/Github.svg"
+        },
+        {
+            "name": "Slack",
+            "icon": "/skillIcons/Slack.svg"
+        },
+        {
+            "name": "Notion",
+            "icon": "/skillIcons/Notion.svg"
+        },
+        {
+            "name": "Figma",
+            "icon": "/skillIcons/Figma.svg"
+        },
+        {
+            "name": "Jira",
+            "icon": "/skillIcons/Jira.svg"
+        },
+        {
+            "name": "Confluence",
+            "icon": "/skillIcons/Confluence.svg"
+        }
+    ],
+    "etc.": [
+        {
+            "name": "Selenium",
+            "icon": "/skillIcons/Selenium.svg",
+            "level": 1
+        },
+        {
+            "name": "PyTorch",
+            "icon": "/skillIcons/PyTorch.svg",
+            "level": 1
+        },
+        {
+            "name": "Pandas",
+            "icon": "/skillIcons/Pandas.svg",
+            "level": 1
+        }
+    ]
+}
