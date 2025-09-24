@@ -15,6 +15,7 @@
     let intersectionObserver: IntersectionObserver | null = null;
     let isProgrammaticScroll: boolean = false;
     let scrollEndTimeout: number | null = null;
+    let userScrollDebounceTimeout: number | null = null;
 
     // 현재 URL에 반영된 slug를 추적하여 불필요한 내비게이션 방지
     let currentSlugInUrl: string = slug ?? '';
@@ -45,7 +46,39 @@
         scrollEndTimeout = window.setTimeout(() => {
             isProgrammaticScroll = false;
             scrollEndTimeout = null;
+            // 프로그램적 스크롤이 끝났으므로 URL을 최신 섹션으로 반영
+            updateUrlToNearest();
         }, 400);
+    }
+
+    // 뷰포트 중앙과 가장 가까운 섹션의 slug 계산
+    function getNearestSlugByViewportCenter(): string {
+        const centerY = window.scrollY + window.innerHeight / 2;
+        const candidates: Array<[HTMLElement, string]> = [
+            [introElement, 'intro'],
+            [eduCertElement, 'educert'],
+            [skillsElement, 'skills'],
+            [projectsElement, 'projects']
+        ];
+        let best: { slug: string; dist: number } | null = null;
+        for (const [el, slug] of candidates) {
+            if (!el) continue;
+            const rect = el.getBoundingClientRect();
+            const elementCenter = window.scrollY + rect.top + rect.height / 2;
+            const dist = Math.abs(elementCenter - centerY);
+            if (!best || dist < best.dist) {
+                best = { slug, dist };
+            }
+        }
+        return best ? best.slug : currentSlugInUrl;
+    }
+
+    function updateUrlToNearest() {
+        const newSlug = getNearestSlugByViewportCenter();
+        if (newSlug === currentSlugInUrl || (newSlug === 'intro' && currentSlugInUrl === '')) return;
+        currentSlugInUrl = newSlug;
+        const newUrl = newSlug === 'intro' ? '/' : `/${newSlug}`;
+        goto(newUrl, { replaceState: true, noScroll: true, keepFocus: true });
     }
 
     // 스크롤 애니메이션
@@ -109,26 +142,9 @@
         }
 
         intersectionObserver = new IntersectionObserver((entries) => {
-            // 프로그램적 스크롤 중에는 URL 갱신을 막아 스크롤 끊김 방지
-            if (isProgrammaticScroll) return;
-            // 가장 많이 보이는 항목 우선
-            const visibleEntries = entries
-                .filter((e) => e.isIntersecting && e.intersectionRatio >= 0.5)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-            if (visibleEntries.length === 0) return;
-
-            const topEntry = visibleEntries[0];
-            const newSlug = resolvedMap.get(topEntry.target as HTMLElement) ?? '';
-
-            // 동일 slug면 건너뜀
-            if (newSlug === currentSlugInUrl || (newSlug === 'intro' && currentSlugInUrl === '')) return;
-
-            currentSlugInUrl = newSlug;
-
-            const newUrl = newSlug === 'intro' ? '/' : `/${newSlug}`;
-            // 히스토리를 교체하며 스크롤은 유지
-            goto(newUrl, { replaceState: true, noScroll: true, keepFocus: true });
+            // URL 변경은 스크롤 멈춤 디바운스에서만 처리
+            // 여기서는 관찰만 수행 (추후 필요 시 사용)
+            return;
         }, { threshold: [0.5] });
 
         // 관찰 시작
@@ -137,11 +153,19 @@
         }
     });
 
-    // 스크롤 이벤트로 프로그램적 스크롤 종료를 디바운스 감지
+    // 스크롤 이벤트: 사용자 스크롤은 디바운스 후 URL 갱신
     function handleScroll() {
         if (isProgrammaticScroll) {
             scheduleScrollEndReset();
+            return;
         }
+        if (userScrollDebounceTimeout !== null) {
+            clearTimeout(userScrollDebounceTimeout);
+        }
+        userScrollDebounceTimeout = window.setTimeout(() => {
+            userScrollDebounceTimeout = null;
+            updateUrlToNearest();
+        }, 150);
     }
 
     onDestroy(() => {
@@ -153,6 +177,10 @@
         if (scrollEndTimeout !== null) {
             clearTimeout(scrollEndTimeout);
             scrollEndTimeout = null;
+        }
+        if (userScrollDebounceTimeout !== null) {
+            clearTimeout(userScrollDebounceTimeout);
+            userScrollDebounceTimeout = null;
         }
     });
 
