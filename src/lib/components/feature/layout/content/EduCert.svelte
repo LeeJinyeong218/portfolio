@@ -53,7 +53,7 @@
                 <h2 class="text-dark-gray">🗣️ 어학</h2>
                 <div class="flex flex-col gap-2">
                     <div class="flex items-center gap-2">
-                        <h4 class="text-dark-gray">TOEIC 750</h4>
+                        <h4 class="text-dark-gray">TOEIC 790</h4>
                         <span class="text-dark-gray caption">2025.09.14</span>
                     </div>
                     <div class="flex items-center gap-2">
