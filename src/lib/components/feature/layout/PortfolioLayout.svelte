@@ -193,19 +193,19 @@
 </script>
 
 <div class="flex flex-col items-center justify-start min-h-screen px-16">
-    <div bind:this={introElement}>
+    <div bind:this={introElement} class="w-full">
         <Intro />
     </div>
     <div class="h-[1px] w-1 bg-light-gray"></div>
-    <div bind:this={eduCertElement}>
+    <div bind:this={eduCertElement} class="w-full">
         <EduCert />
     </div>
     <div class="h-[1px] w-1 bg-light-gray"></div>
-    <div bind:this={skillsElement}>
+    <div bind:this={skillsElement} class="w-full">
         <Skills />
     </div>
     <div class="h-[1px] w-1 bg-light-gray"></div>
-    <div bind:this={projectsElement}>
+    <div bind:this={projectsElement} class="w-full">
         <Projects />
     </div>
     <div class="h-[1px] w-1 bg-light-gray"></div>
