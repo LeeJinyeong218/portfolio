@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
     import { onDestroy, onMount } from 'svelte';
     import Intro from "./content/Intro.svelte";
@@ -43,7 +44,7 @@
             clearTimeout(scrollEndTimeout);
         }
         // 스무스 스크롤이 끝났다고 볼 수 있는 지연 시간
-        scrollEndTimeout = window.setTimeout(() => {
+        scrollEndTimeout = setTimeout(() => {
             isProgrammaticScroll = false;
             scrollEndTimeout = null;
             // 프로그램적 스크롤이 끝났으므로 URL을 최신 섹션으로 반영
@@ -105,7 +106,7 @@
     }
 
     // slug 감지
-    $: if (slug !== undefined) {
+    $: if (browser && slug !== undefined) {
         const targetElement = getScrollTarget(slug);
         if (targetElement) {
             // requestAnimationFrame을 사용하여 더 정확한 타이밍에 스크롤
@@ -117,9 +118,11 @@
 
     // 초기 로드 스크롤
     onMount(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        if (browser) {
+            window.addEventListener('scroll', handleScroll, { passive: true });
+        }
         const targetElement = getScrollTarget(slug);
-        if (targetElement) {
+        if (browser && targetElement) {
             // requestAnimationFrame을 사용하여 더 정확한 타이밍에 스크롤
             requestAnimationFrame(() => {
                 scrollToElement(targetElement);
@@ -173,7 +176,9 @@
             intersectionObserver.disconnect();
             intersectionObserver = null;
         }
-        window.removeEventListener('scroll', handleScroll);
+        if (browser) {
+            window.removeEventListener('scroll', handleScroll);
+        }
         if (scrollEndTimeout !== null) {
             clearTimeout(scrollEndTimeout);
             scrollEndTimeout = null;

@@ -1,6 +1,7 @@
 <script lang="ts">
+    import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
-    import { page } from '$app/state';
+    import { page } from '$app/stores';
     import profile from '$lib/assets/profile.gif';
     import Github from '$lib/assets/icons/Github.svg';
     import Linkedin from '$lib/assets/icons/LinkedIn.svg';
@@ -20,14 +21,16 @@
 
     async function goToIntro() {
         // 현재 경로가 /가 아니라면 URL 변경
-        if (page.url.pathname !== '/') {
+        if ($page.url.pathname !== '/') {
             goto('/', { replaceState: true, noScroll: true });
         } else {
             // 이미 / 경로라면 스크롤만 맨 위로
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            if (browser) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
 </script>
@@ -57,11 +60,11 @@
             {#each navItems as item}
                 <li>
                     <button 
-                        class={clsx('block w-full text-left px-4 py-3 rounded transition-colors flex gap-2 rounded-lg', item.slug === (page.url.pathname ?? '') ? 'bg-primary' : 'hover:bg-gray-100')}
+                        class={clsx('block w-full text-left px-4 py-3 rounded transition-colors flex gap-2 rounded-lg', item.slug === ($page.url.pathname ?? '') ? 'bg-primary' : 'hover:bg-gray-100')}
                         on:click={() => navigateToSection(item.slug)}
                     >
-                        <item.icon size={24} color={item.slug === (page.url.pathname ?? '') ? "#ffffff" : "var(--color-dark-gray)"} />
-                        <span class={clsx(item.slug === (page.url.pathname ?? '') ? "text-white" : "text-dark-gray")}>{m[item.key as keyof typeof m]()}</span>
+                        <item.icon size={24} color={item.slug === ($page.url.pathname ?? '') ? "#ffffff" : "var(--color-dark-gray)"} />
+                        <span class={clsx(item.slug === ($page.url.pathname ?? '') ? "text-white" : "text-dark-gray")}>{m[item.key as keyof typeof m]()}</span>
                     </button>
                 </li>
             {/each}
