@@ -1,0 +1,84 @@
+{
+    "certifications": [
+        {
+            "ko": {
+                "date": "2025.09.14",
+                "name": "TOEIC",
+                "score": "790",
+                "language": "영어"
+            },
+            "en": {
+                "date": "2025.09.14",
+                "name": "TOEIC",
+                "score": "790",
+                "language": "English"
+            }
+        },
+        {
+            "ko": {
+                "date": "2025.03.12",
+                "name": "OPIc",
+                "level": "IM1",
+                "language": "영어"
+            },
+            "en": {
+                "date": "2025.03.12",
+                "name": "OPIc",
+                "level": "IM1",
+                "language": "English"
+            }
+        },
+        {
+            "ko": {
+                "date": "2025.01.10",
+                "name": "JLPT",
+                "level": "N1",
+                "language": "일본어"
+            },
+            "en": {
+                "date": "2025.01.10",
+                "name": "JLPT",
+                "level": "N1",
+                "language": "Japanese"
+            }
+        },
+        {
+            "ko": {
+                "date": "2024.09.20",
+                "name": "PCCP JavaScript",
+                "level": "Lv.3",
+                "issuer": "그렙"
+            },
+            "en": {
+                "date": "2024.09.20",
+                "name": "PCCP JavaScript",
+                "level": "Lv.3",
+                "issuer": "Grepp"
+            }
+        },
+        {
+            "ko": {
+                "date": "2024.06.18",
+                "name": "정보처리기사",
+                "issuer": "한국산업인력공단"
+            },
+            "en": {
+                "date": "2024.06.18",
+                "name": "Engineer Information Processing",
+                "issuer": "Korea Industrial Human Resources Corporation"
+            }
+        },
+        {
+            "ko": {
+                "date": "2024.04.05",
+                "name": "SQL개발자(SQLD자격)",
+                "issuer": "한국데이터베이스진흥센터"
+            },
+            "en": {
+                "date": "2024.04.05",
+                "name": "SQL Developer (SQLD)",
+                "issuer": "Korea Database Agency"
+            }
+        }
+    ]
+}
