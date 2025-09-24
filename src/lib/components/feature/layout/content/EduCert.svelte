@@ -6,7 +6,7 @@
     <div class="flex flex-col items-start justify-center gap-8">
         <h1 class="flex items-center gap-2">
             <BookA color="var(--color-primary)" size={48} />
-            <span class="text-primary">소개</span>
+            <span class="text-primary">학력 & 자격</span>
         </h1>
         <div class="flex flex-col gap-8">
             <div class="flex flex-col gap-4">
