@@ -10,6 +10,7 @@
 	import { m } from '$lib/paraglide/messages.js';
     import { navItems } from '$lib/constants/nav';
     import { clsx } from 'clsx';
+	import LanguageButton from '../LanguageButton.svelte';
     
     function navigateToSection(slug: string) {
         if (slug === 'intro') { 
@@ -71,9 +72,7 @@
         </ul>
     </nav>
     <!-- language button -->
-    <button aria-label="language button">
-        <Languages size={24} color="var(--color-dark-gray)" />
-    </button>
+    <LanguageButton />
     <!-- to top button -->
     <button aria-label="to top button" class="border-2 border-light-gray rounded-full p-3 flex items-center justify-center" on:click={goToIntro}>
         <ArrowUpFromLine size={24} color="var(--color-light-gray)" />
